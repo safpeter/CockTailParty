@@ -4,6 +4,7 @@ import com.codecool.cocktail.data.CocktailRepository;
 import com.codecool.cocktail.data.RatingRepository;
 import com.codecool.cocktail.data.UserRepository;
 import com.codecool.cocktail.model.*;
+import com.codecool.cocktail.service.CocktailFilter;
 import com.codecool.cocktail.service.IngredientsMaker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 @Slf4j
@@ -31,6 +33,13 @@ public class Controller {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    CnameAndUrl cnameAndUrl;
+
+    @Autowired
+    CocktailFilter cocktailFilter;
+
 
 
     @GetMapping("/")
@@ -79,6 +88,13 @@ public class Controller {
                 .date(LocalDate.now())
                 .build());
         return true;
+    }
+
+    @PostMapping("/filter") //Tested. Works.
+    public List<CnameAndUrl> sendFilteredCocktails(@RequestBody IngredientStore ingredients) {
+        Set<Cocktail> allCocktailes = cocktailRepository.getAllCocktailes();
+        List<Cocktail> filteredCocktailes = cocktailFilter.getFillteredCocktails(allCocktailes, ingredients);
+        return cnameAndUrl.convertCocktailsToCnameAndUrl(filteredCocktailes);
     }
 
 }
