@@ -11,9 +11,6 @@ import javax.annotation.PostConstruct;
 @SpringBootApplication
 public class CocktailApplication {
 
-    @Autowired
-    IngredientsMaker ingredientsMaker;
-
     public static void main(String[] args) {
         SpringApplication.run(CocktailApplication.class, args);
     }

@@ -41,6 +41,9 @@ public class Controller {
     @Autowired
     FilterResult filterResult;
 
+    @Autowired
+    AverageRating averageRating;
+
 
 
     @GetMapping("/")
@@ -66,15 +69,18 @@ public class Controller {
     }
 
     @GetMapping("/avgrating/{cocktailName}")
-    public double getAverageRating(@PathVariable("cocktailName") String cocktailName){
+    public AverageRating getAverageRating(@PathVariable("cocktailName") String cocktailName){
         Long cocktailId = cocktailRepository.getIdByName(cocktailName);
         Rating[] ratings =  ratingRepository.getRatingsByCocktailId(cocktailId);
         double sumRating = 0.0;
         for (Rating rating: ratings) {
             sumRating += rating.getRating();
         }
-        return sumRating/ratings.length;
+        averageRating.setAverageRating(sumRating/ratings.length);
+        averageRating.setSumRating(ratings.length);
+        return averageRating;
     }
+
 
     @PostMapping("/newrating/{cocktailName}")
     public boolean saveNewRating(@PathVariable("cocktailName") String cocktailName, @RequestBody NewRating newRating) {
