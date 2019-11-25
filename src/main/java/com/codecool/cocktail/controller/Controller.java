@@ -22,7 +22,7 @@ import java.util.Set;
 public class Controller {
 
     @Autowired
-     RatingRepository ratingRepository;
+    RatingRepository ratingRepository;
 
     @Autowired
     IngredientsMaker ingredientsMaker;
