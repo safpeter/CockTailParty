@@ -34,11 +34,12 @@ public class Controller {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    CnameAndUrl cnameAndUrl;
 
     @Autowired
     CocktailFilter cocktailFilter;
+
+    @Autowired
+    FilterResult filterResult;
 
 
 
@@ -91,10 +92,10 @@ public class Controller {
     }
 
     @PostMapping("/filter") //Tested. Works.
-    public List<CnameAndUrl> sendFilteredCocktails(@RequestBody IngredientStore ingredients) {
+    public List<FilterResult> sendFilteredCocktails(@RequestBody IngredientStore ingredients) {
         Set<Cocktail> allCocktailes = cocktailRepository.getAllCocktailes();
         List<Cocktail> filteredCocktailes = cocktailFilter.getFillteredCocktails(allCocktailes, ingredients);
-        return cnameAndUrl.convertCocktailsToCnameAndUrl(filteredCocktailes);
+        return filterResult.convertCocktails(filteredCocktailes);
     }
 
 }
