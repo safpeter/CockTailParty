@@ -18,6 +18,7 @@ public class FilterResult {
     private String url;
     private AlcoholContent alcoholContent;
 
+
     public List<FilterResult> convertCocktails(List<Cocktail> cocktails){
         return cocktails.stream().map(cocktail -> new FilterResult(cocktail.getName(), cocktail.getPictureURL(), cocktail.getAlcoholContent()))
                 .collect(Collectors.toList());

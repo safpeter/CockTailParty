@@ -21,7 +21,7 @@ import java.util.Set;
 public class Controller {
 
     @Autowired
-     RatingRepository ratingRepository;
+    RatingRepository ratingRepository;
 
     @Autowired
     IngredientsMaker ingredientsMaker;
@@ -103,8 +103,10 @@ public class Controller {
 
     @PostMapping("/filter") //Tested. Works.
     public List<FilterResult> sendFilteredCocktails(@RequestBody IngredientStore ingredients) {
+        System.out.println("ingredients: -... " + ingredients);
         Set<Cocktail> allCocktailes = cocktailRepository.getAllCocktailes();
         List<Cocktail> filteredCocktailes = cocktailFilter.getFillteredCocktails(allCocktailes, ingredients);
+        System.out.println(filterResult.convertCocktails(filteredCocktailes));
         return filterResult.convertCocktails(filteredCocktailes);
     }
 
