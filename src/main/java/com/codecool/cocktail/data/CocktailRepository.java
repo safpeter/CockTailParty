@@ -17,6 +17,9 @@ public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
     @Query("SELECT c.name from Cocktail c")
     Set<String> getAllCocktailNames();
 
+    @Query("SELECT new com.codecool.cocktail.model.CocktailParts(c.name, c.pictureURL) from Cocktail c")
+    Set<CocktailParts> getAllCocktailNamesAndPictures();
+
 
     Cocktail getCocktailByName(String name);
 

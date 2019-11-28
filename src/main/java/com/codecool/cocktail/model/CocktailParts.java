@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 public class CocktailParts {
 
 
-    private Long id;
-
     private String name;
+
+    private String pictureUrl;
 
 
 }

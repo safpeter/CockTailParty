@@ -37,10 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers( "/auth/signin").permitAll()// allowed by anyone
                 .antMatchers( "/auth/login").permitAll()// allowed by anyone
-                .antMatchers("/csikocsor").permitAll()
-                .antMatchers( "/**").permitAll()
-                .antMatchers( "/rating/**").permitAll()
-                .antMatchers( "/ratings/**").permitAll()
+                .antMatchers( "/**").authenticated()
                 .and()
                 .addFilterBefore(new JwtTokenFilter(jwtTokenServices),
                         UsernamePasswordAuthenticationFilter.class);
