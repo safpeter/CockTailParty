@@ -38,6 +38,7 @@ public class Cocktail {
     private String pictureURL;
 
 
+
     @ElementCollection
     @CollectionTable(name = "INGREDIENTS")
     @MapKeyColumn(name="ingredient_key")

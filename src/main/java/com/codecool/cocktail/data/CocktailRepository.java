@@ -33,5 +33,4 @@ public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
 
 
 
-
 }

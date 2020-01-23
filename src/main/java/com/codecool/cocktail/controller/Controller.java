@@ -89,7 +89,8 @@ public class Controller {
     @PostMapping("/newrating/{cocktailName}")
     public boolean saveNewRating(@PathVariable("cocktailName") String cocktailName, @RequestBody NewRating newRating) {
         Long cocktailId = cocktailRepository.getIdByName(cocktailName);
-       AppUser appUser = userRepository.getAppUserByUsername(newRating.getUserName());
+        System.out.println(newRating.getUserName());
+        AppUser appUser = userRepository.getAppUserByUsername(newRating.getUserName());
         ratingRepository.saveAndFlush(Rating.builder()
                 .cocktailId(cocktailId)
                 .userId(appUser.getId())
