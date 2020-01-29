@@ -61,7 +61,7 @@ public class Controller {
     }
 
     @GetMapping("/all-ingredients")
-    public Set<String> csikocsor() {
+    public List<String> csikocsor() {
         ingredientsMaker.generateIngredients();
         return ingredientsMaker.getAllIngredients();
     }

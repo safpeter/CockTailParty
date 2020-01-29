@@ -8,9 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @Data
@@ -22,10 +20,15 @@ public class IngredientsMaker {
     CocktailRepository cocktailRepository;
 
 
-    private Set<String> allIngredients = new HashSet<>();
+    private List<String> allIngredients;
+    private Set<String> trimmedIngredients = new HashSet<>();
 
     public void generateIngredients(){
-        Set<Cocktail> allcocktailes = cocktailRepository.getAllCocktailes();
-        allcocktailes.forEach(cocktail -> allIngredients.addAll(cocktail.getIngredients().keySet()));
+        Set<Cocktail> allCocktails = cocktailRepository.getAllCocktailes();
+        allCocktails.forEach(cocktail -> trimmedIngredients.addAll(cocktail.getIngredients().keySet()));
+        allIngredients = new ArrayList<>(trimmedIngredients);
+        Collections.sort(allIngredients);
+
+
     }
 }

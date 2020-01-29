@@ -41,29 +41,51 @@ public class JsonCocktailsToRealCocktail {
         for (String num : liveNums) {
             if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("lemon juice")) {
                 ingredientsAndMeasure.put("Lemon juice", cocktail.findValue("strMeasure" + num).asText());
-            }
-            else if(cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("egg white")){
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("egg white")) {
                 ingredientsAndMeasure.put("Egg white", cocktail.findValue("strMeasure" + num).asText());
-            }
-            else if(cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("egg yolk")){
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("egg yolk")) {
                 ingredientsAndMeasure.put("Egg yolk", cocktail.findValue("strMeasure" + num).asText());
-            }
-            else if(cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("gin")){
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("gin")) {
                 ingredientsAndMeasure.put("Gin", cocktail.findValue("strMeasure" + num).asText());
-            }
-            else if(cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("orange juice")){
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("orange juice")) {
                 ingredientsAndMeasure.put("Orange juice", cocktail.findValue("strMeasure" + num).asText());
-            }else if(cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("orange peel")){
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("orange peel")) {
                 ingredientsAndMeasure.put("Orange peel", cocktail.findValue("strMeasure" + num).asText());
-            }else if(cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("orange bitters")){
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("orange bitters")) {
                 ingredientsAndMeasure.put("Orange bitters", cocktail.findValue("strMeasure" + num).asText());
-            }else if(cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("lemon")){
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("lemon")) {
                 ingredientsAndMeasure.put("Lemon", cocktail.findValue("strMeasure" + num).asText());
-            }else if(cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("lime juice")){
-                ingredientsAndMeasure.put("Lime juice", cocktail.findValue("strMeasure" + num).asText());
-            }
-
-            else {
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("tonic water")) {
+                ingredientsAndMeasure.put("Tonic water", cocktail.findValue("strMeasure" + num).asText());
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("sugar syrup")) {
+                ingredientsAndMeasure.put("Sugar syrup", cocktail.findValue("strMeasure" + num).asText());
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("soda water")) {
+                ingredientsAndMeasure.put("Soda water", cocktail.findValue("strMeasure" + num).asText());
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("angostura bitters")) {
+                ingredientsAndMeasure.put("Angostura bitters", cocktail.findValue("strMeasure" + num).asText());
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("apricot brandy")) {
+                ingredientsAndMeasure.put("Apricot brandy", cocktail.findValue("strMeasure" + num).asText());
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("cranberry juice")) {
+                ingredientsAndMeasure.put("Cranberry juice", cocktail.findValue("strMeasure" + num).asText());
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("dark rum")) {
+                ingredientsAndMeasure.put("Dark Rum", cocktail.findValue("strMeasure" + num).asText());
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("grapefruit juice")) {
+                ingredientsAndMeasure.put("Grapefruit juice", cocktail.findValue("strMeasure" + num).asText());
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("maraschino liqueur")) {
+                ingredientsAndMeasure.put("Maraschino liqueur", cocktail.findValue("strMeasure" + num).asText());
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("maraschino cherry")) {
+                ingredientsAndMeasure.put("Maraschino cherry", cocktail.findValue("strMeasure" + num).asText());
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("pineapple juice")) {
+                ingredientsAndMeasure.put("Pineapple juice", cocktail.findValue("strMeasure" + num).asText());
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("rye whiskey")) {
+                ingredientsAndMeasure.put("Rye Whiskey", cocktail.findValue("strMeasure" + num).asText());
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("triple sec")) {
+                ingredientsAndMeasure.put("Triple Sec", cocktail.findValue("strMeasure" + num).asText());
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("white rum")) {
+                ingredientsAndMeasure.put("White Rum", cocktail.findValue("strMeasure" + num).asText());
+            } else if (cocktail.findValue("strIngredient" + num).asText().toLowerCase().equals("blackstrap rum")) {
+                ingredientsAndMeasure.put("Blackstrap Rum", cocktail.findValue("strMeasure" + num).asText());
+            } else {
                 ingredientsAndMeasure.put(cocktail.findValue("strIngredient" + num).asText(), cocktail.findValue("strMeasure" + num).asText());
             }
         }
